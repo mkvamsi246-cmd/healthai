@@ -75,7 +75,10 @@ def predict_health_risk(data: Dict[str, Any]) -> Dict[str, Any]:
 
     record_filled = {}
     for feat in feature_names:
-        record_filled[feat] = engineered_record.get(feat, baselines[feat])
+        val = engineered_record.get(feat)
+        if val is None or (isinstance(val, float) and pd.isna(val)):
+            val = baselines[feat]
+        record_filled[feat] = val
 
     # Pre-encode Gender directly on the python value before creating DataFrame to satisfy Pandas 3.0 types
     gender_raw = str(record_filled["Gender"]).strip().capitalize()
