@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile — HealthInsight AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+<div class="dash-layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo"><div class="sidebar-logo-icon"><i class="fas fa-heart-pulse"></i></div><span class="sidebar-logo-text">HealthInsight AI</span></div>
+      <button class="sidebar-toggle" id="sidebarToggle"><i class="fas fa-chevron-left"></i></button>
+    </div>
+    <nav class="sidebar-nav">
+      <span class="nav-section-label">Main</span>
+      <a href="dashboard.html" class="nav-item"><i class="fas fa-grid-2"></i><span class="nav-item-text">Dashboard</span></a>
+      <a href="upload.html" class="nav-item"><i class="fas fa-cloud-arrow-up"></i><span class="nav-item-text">Upload Report</span></a>
+      <a href="reports.html" class="nav-item"><i class="fas fa-folder-open"></i><span class="nav-item-text">My Reports</span><span class="nav-badge">8</span></a>
+      <a href="compare.html" class="nav-item"><i class="fas fa-scale-balanced"></i><span class="nav-item-text">Compare Reports</span></a>
+      <a href="progress.html" class="nav-item"><i class="fas fa-chart-line"></i><span class="nav-item-text">Progress</span></a>
+      <span class="nav-section-label">Account</span>
+      <a href="profile.html" class="nav-item active"><i class="fas fa-circle-user"></i><span class="nav-item-text">Profile</span></a>
+      <a href="index.html" class="nav-item"><i class="fas fa-house"></i><span class="nav-item-text">Home Page</span></a>
+    </nav>
+    <div class="sidebar-footer">
+      <a href="login.html" class="nav-item" style="color:#EF4444"><i class="fas fa-right-from-bracket"></i><span class="nav-item-text">Logout</span></a>
+    </div>
+  </aside>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- Main -->
+  <main class="dash-main">
+    <div class="dash-topbar">
+      <div class="topbar-left">
+        <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+        <div><div class="topbar-title">Profile</div><div class="topbar-subtitle">Manage your account</div></div>
+      </div>
+      <div class="topbar-right">
+        <button class="theme-toggle" data-theme-toggle><i class="fas fa-moon"></i></button>
+        <div class="user-avatar">JS</div>
+      </div>
+    </div>
+
+    <div class="dash-content">
+
+      <!-- Profile Header -->
+      <div class="profile-header">
+        <div class="profile-avatar-wrap">
+          <div class="profile-avatar-big" id="profileAvatarBig">JS</div>
+          <div class="avatar-edit" id="avatarEdit"><i class="fas fa-camera"></i></div>
+        </div>
+        <div class="profile-header-info">
+          <h2>John Smith</h2>
+          <p>john.smith@example.com &bull; Member since January 2025</p>
+          <div class="profile-header-stats">
+            <div class="ph-stat">
+              <span class="ph-stat-num">8</span>
+              <span class="ph-stat-label">Reports</span>
+            </div>
+            <div class="ph-stat">
+              <span class="ph-stat-num">82</span>
+              <span class="ph-stat-label">Health Score</span>
+            </div>
+            <div class="ph-stat">
+              <span class="ph-stat-num">6</span>
+              <span class="ph-stat-label">Months Active</span>
+            </div>
+          </div>
+        </div>
+        <div class="profile-header-badge">
+          <i class="fas fa-star"></i> Pro Member
+        </div>
+      </div>
+
+      <!-- Profile Grid -->
+      <div class="profile-grid">
+
+        <!-- Left col -->
+        <div style="display:flex;flex-direction:column;gap:24px">
+
+          <!-- Personal Info -->
+          <div class="card">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
+              <h3>Personal Information</h3>
+              <button class="btn btn-outline btn-sm" onclick="window.HI.Toast.info('Edit mode — use the edit buttons on each field.')">
+                <i class="fas fa-pen"></i> Edit
+              </button>
+            </div>
+            <div>
+              <div class="info-field">
+                <div class="info-label">Full Name</div>
+                <div class="info-value">
+                  <i class="fas fa-user" style="color:var(--primary);font-size:.85rem"></i>
+                  John Smith
+                  <button class="info-edit-btn">Edit</button>
+                </div>
+              </div>
+              <div class="info-field">
+                <div class="info-label">Email Address</div>
+                <div class="info-value">
+                  <i class="fas fa-envelope" style="color:var(--primary);font-size:.85rem"></i>
+                  john.smith@example.com
+                  <button class="info-edit-btn">Edit</button>
+                </div>
+              </div>
+              <div class="info-field">
+                <div class="info-label">Phone Number</div>
+                <div class="info-value">
+                  <i class="fas fa-phone" style="color:var(--primary);font-size:.85rem"></i>
+                  +91 98765 43210
+                  <button class="info-edit-btn">Edit</button>
+                </div>
+              </div>
+              <div class="info-field">
+                <div class="info-label">Age</div>
+                <div class="info-value">
+                  <i class="fas fa-calendar" style="color:var(--primary);font-size:.85rem"></i>
+                  34 years
+                  <button class="info-edit-btn">Edit</button>
+                </div>
+              </div>
+              <div class="info-field">
+                <div class="info-label">Gender</div>
+                <div class="info-value">
+                  <i class="fas fa-venus-mars" style="color:var(--primary);font-size:.85rem"></i>
+                  Male
+                  <button class="info-edit-btn">Edit</button>
+                </div>
+              </div>
+              <div class="info-field">
+                <div class="info-label">Blood Group</div>
+                <div class="info-value">
+                  <i class="fas fa-droplet" style="color:#EF4444;font-size:.85rem"></i>
+                  B+
+                  <button class="info-edit-btn">Edit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Health Score History -->
+          <div class="card">
+            <h3 style="margin-bottom:20px">Health Score History</h3>
+            <div class="score-history" id="scoreHistoryList"></div>
+          </div>
+
+        </div>
+
+        <!-- Right col -->
+        <div style="display:flex;flex-direction:column;gap:24px">
+
+          <!-- Account Settings -->
+          <div class="card">
+            <h3 style="margin-bottom:4px">Account Settings</h3>
+            <div class="settings-list">
+              <div class="settings-item">
+                <div class="settings-item-left">
+                  <div class="settings-item-icon"><i class="fas fa-bell"></i></div>
+                  <div>
+                    <div class="settings-item-title">Email Notifications</div>
+                    <div class="settings-item-desc">Receive analysis results by email</div>
+                  </div>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="settings-item">
+                <div class="settings-item-left">
+                  <div class="settings-item-icon"><i class="fas fa-moon"></i></div>
+                  <div>
+                    <div class="settings-item-title">Dark Mode</div>
+                    <div class="settings-item-desc">Switch to dark theme</div>
+                  </div>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="darkModeToggle">
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="settings-item">
+                <div class="settings-item-left">
+                  <div class="settings-item-icon"><i class="fas fa-calendar-check"></i></div>
+                  <div>
+                    <div class="settings-item-title">Checkup Reminders</div>
+                    <div class="settings-item-desc">Monthly health checkup reminders</div>
+                  </div>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="settings-item">
+                <div class="settings-item-left">
+                  <div class="settings-item-icon"><i class="fas fa-share-nodes"></i></div>
+                  <div>
+                    <div class="settings-item-title">Share Reports</div>
+                    <div class="settings-item-desc">Allow sharing with your doctor</div>
+                  </div>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox">
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Security -->
+          <div class="card">
+            <h3 style="margin-bottom:16px">Security</h3>
+            <div class="settings-list">
+              <div class="settings-item">
+                <div class="settings-item-left">
+                  <div class="settings-item-icon"><i class="fas fa-lock"></i></div>
+                  <div>
+                    <div class="settings-item-title">Change Password</div>
+                    <div class="settings-item-desc">Last changed 3 months ago</div>
+                  </div>
+                </div>
+                <button id="changePasswordBtn" class="btn btn-outline btn-sm">Change</button>
+              </div>
+              <div class="settings-item">
+                <div class="settings-item-left">
+                  <div class="settings-item-icon"><i class="fas fa-shield-halved"></i></div>
+                  <div>
+                    <div class="settings-item-title">Two-Factor Auth</div>
+                    <div class="settings-item-desc">Extra security for your account</div>
+                  </div>
+                </div>
+                <button class="btn btn-secondary btn-sm" onclick="window.HI.Toast.info('2FA setup coming soon!')">Enable</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Danger Zone -->
+          <div class="card" style="border:1.5px solid rgba(239,68,68,.2)">
+            <h3 style="margin-bottom:16px;color:var(--danger)"><i class="fas fa-triangle-exclamation"></i> Danger Zone</h3>
+            <div class="settings-list">
+              <div class="settings-item">
+                <div class="settings-item-left">
+                  <div class="settings-item-icon danger"><i class="fas fa-right-from-bracket"></i></div>
+                  <div>
+                    <div class="settings-item-title">Sign Out</div>
+                    <div class="settings-item-desc">Log out of your account</div>
+                  </div>
+                </div>
+                <button id="logoutBtn" class="btn btn-danger btn-sm">Sign Out</button>
+              </div>
+              <div class="settings-item">
+                <div class="settings-item-left">
+                  <div class="settings-item-icon danger"><i class="fas fa-trash"></i></div>
+                  <div>
+                    <div class="settings-item-title">Delete Account</div>
+                    <div class="settings-item-desc">Permanently delete all data</div>
+                  </div>
+                </div>
+                <button class="btn btn-sm" style="background:#FEE2E2;color:var(--danger)"
+                        onclick="window.HI.Toast.warning('Please contact support to delete your account.')">Delete</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/profile.js"></script>
+<script>
+  // Dark mode toggle in profile
+  document.getElementById('darkModeToggle').addEventListener('change', function() {
+    const theme = this.checked ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('hi-theme', theme);
+  });
+  // Set initial state
+  document.getElementById('darkModeToggle').checked = localStorage.getItem('hi-theme') === 'dark';
+</script>
+</body>
+</html>

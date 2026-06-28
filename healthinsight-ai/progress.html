@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Progress — HealthInsight AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/progress.css">
+</head>
+<body>
+<div class="dash-layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo"><div class="sidebar-logo-icon"><i class="fas fa-heart-pulse"></i></div><span class="sidebar-logo-text">HealthInsight AI</span></div>
+      <button class="sidebar-toggle" id="sidebarToggle"><i class="fas fa-chevron-left"></i></button>
+    </div>
+    <nav class="sidebar-nav">
+      <span class="nav-section-label">Main</span>
+      <a href="dashboard.html" class="nav-item"><i class="fas fa-grid-2"></i><span class="nav-item-text">Dashboard</span></a>
+      <a href="upload.html" class="nav-item"><i class="fas fa-cloud-arrow-up"></i><span class="nav-item-text">Upload Report</span></a>
+      <a href="reports.html" class="nav-item"><i class="fas fa-folder-open"></i><span class="nav-item-text">My Reports</span><span class="nav-badge">8</span></a>
+      <a href="compare.html" class="nav-item"><i class="fas fa-scale-balanced"></i><span class="nav-item-text">Compare Reports</span></a>
+      <a href="progress.html" class="nav-item active"><i class="fas fa-chart-line"></i><span class="nav-item-text">Progress</span></a>
+      <span class="nav-section-label">Account</span>
+      <a href="profile.html" class="nav-item"><i class="fas fa-circle-user"></i><span class="nav-item-text">Profile</span></a>
+      <a href="index.html" class="nav-item"><i class="fas fa-house"></i><span class="nav-item-text">Home Page</span></a>
+    </nav>
+    <div class="sidebar-footer">
+      <a href="login.html" class="nav-item" style="color:#EF4444"><i class="fas fa-right-from-bracket"></i><span class="nav-item-text">Logout</span></a>
+    </div>
+  </aside>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- Main -->
+  <main class="dash-main">
+    <div class="dash-topbar">
+      <div class="topbar-left">
+        <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+        <div><div class="topbar-title">Health Progress</div><div class="topbar-subtitle">Track your wellness journey</div></div>
+      </div>
+      <div class="topbar-right">
+        <button class="theme-toggle" data-theme-toggle><i class="fas fa-moon"></i></button>
+        <div class="user-avatar" onclick="window.location.href='profile.html'">JS</div>
+      </div>
+    </div>
+
+    <div class="dash-content">
+      <div class="dash-page-header">
+        <h1>Health Progress</h1>
+        <p>Visual trends of your key health metrics over the last 6 months</p>
+      </div>
+
+      <!-- Trend Cards Grid -->
+      <div class="trend-grid">
+
+        <!-- Blood Sugar -->
+        <div class="trend-card">
+          <div class="trend-card-header">
+            <div>
+              <div class="trend-card-title"><i class="fas fa-droplet" style="color:#EF4444"></i> Blood Sugar</div>
+              <p style="font-size:.8rem;margin-top:2px">Fasting Glucose</p>
+            </div>
+            <span class="trend-card-change down"><i class="fas fa-arrow-down"></i> -11.3%</span>
+          </div>
+          <div>
+            <span class="trend-card-value">126</span>
+            <span class="trend-card-unit"> mg/dL</span>
+          </div>
+          <div id="spark-bloodsugar"></div>
+        </div>
+
+        <!-- HbA1c -->
+        <div class="trend-card">
+          <div class="trend-card-header">
+            <div>
+              <div class="trend-card-title"><i class="fas fa-vial" style="color:#F59E0B"></i> HbA1c</div>
+              <p style="font-size:.8rem;margin-top:2px">Glycated Hemoglobin</p>
+            </div>
+            <span class="trend-card-change down"><i class="fas fa-arrow-down"></i> -11.1%</span>
+          </div>
+          <div>
+            <span class="trend-card-value">7.2</span>
+            <span class="trend-card-unit"> %</span>
+          </div>
+          <div id="spark-hba1c"></div>
+        </div>
+
+        <!-- Blood Pressure -->
+        <div class="trend-card">
+          <div class="trend-card-header">
+            <div>
+              <div class="trend-card-title"><i class="fas fa-heart-pulse" style="color:#2563EB"></i> Blood Pressure</div>
+              <p style="font-size:.8rem;margin-top:2px">Systolic (mmHg)</p>
+            </div>
+            <span class="trend-card-change down"><i class="fas fa-arrow-down"></i> -5.2%</span>
+          </div>
+          <div>
+            <span class="trend-card-value">128</span>
+            <span class="trend-card-unit"> /82 mmHg</span>
+          </div>
+          <div id="spark-bp"></div>
+        </div>
+
+        <!-- Weight -->
+        <div class="trend-card">
+          <div class="trend-card-header">
+            <div>
+              <div class="trend-card-title"><i class="fas fa-weight-scale" style="color:#8B5CF6"></i> Body Weight</div>
+              <p style="font-size:.8rem;margin-top:2px">Current weight</p>
+            </div>
+            <span class="trend-card-change down"><i class="fas fa-arrow-down"></i> -3.6%</span>
+          </div>
+          <div>
+            <span class="trend-card-value">84.8</span>
+            <span class="trend-card-unit"> kg</span>
+          </div>
+          <div id="spark-weight"></div>
+        </div>
+
+        <!-- BMI -->
+        <div class="trend-card">
+          <div class="trend-card-header">
+            <div>
+              <div class="trend-card-title"><i class="fas fa-person" style="color:#14B8A6"></i> BMI</div>
+              <p style="font-size:.8rem;margin-top:2px">Body Mass Index</p>
+            </div>
+            <span class="trend-card-change down"><i class="fas fa-arrow-down"></i> -2.5%</span>
+          </div>
+          <div>
+            <span class="trend-card-value">27.4</span>
+            <span class="trend-card-unit"> kg/m²</span>
+          </div>
+          <div id="spark-bmi"></div>
+        </div>
+
+        <!-- Cholesterol -->
+        <div class="trend-card">
+          <div class="trend-card-header">
+            <div>
+              <div class="trend-card-title"><i class="fas fa-shield-heart" style="color:#F59E0B"></i> LDL Cholesterol</div>
+              <p style="font-size:.8rem;margin-top:2px">Low-Density Lipoprotein</p>
+            </div>
+            <span class="trend-card-change down"><i class="fas fa-arrow-down"></i> -18.7%</span>
+          </div>
+          <div>
+            <span class="trend-card-value">148</span>
+            <span class="trend-card-unit"> mg/dL</span>
+          </div>
+          <div id="spark-chol"></div>
+        </div>
+
+        <!-- Health Score -->
+        <div class="trend-card" style="border:2px solid rgba(37,99,235,.2)">
+          <div class="trend-card-header">
+            <div>
+              <div class="trend-card-title"><i class="fas fa-star" style="color:var(--primary)"></i> Health Score</div>
+              <p style="font-size:.8rem;margin-top:2px">Overall wellness</p>
+            </div>
+            <span class="trend-card-change up"><i class="fas fa-arrow-up"></i> +28.1%</span>
+          </div>
+          <div>
+            <span class="trend-card-value" style="color:var(--primary)">82</span>
+            <span class="trend-card-unit"> /100</span>
+          </div>
+          <div id="spark-score"></div>
+        </div>
+
+      </div>
+
+      <!-- Overall Graph -->
+      <div class="card" style="margin-bottom:24px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
+          <div>
+            <h3>Overall Health Score Trend</h3>
+            <p style="font-size:.82rem">January — June 2025</p>
+          </div>
+          <span class="badge badge-success"><i class="fas fa-trophy"></i> +28% in 6 months</span>
+        </div>
+        <div class="big-chart-area" id="overallChart"></div>
+      </div>
+
+      <!-- Monthly + Timeline -->
+      <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:24px">
+
+        <!-- Monthly -->
+        <div class="card">
+          <h3 style="margin-bottom:20px">Monthly Score Breakdown</h3>
+          <div class="monthly-grid" id="monthlyCards"></div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="card">
+          <h3 style="margin-bottom:20px">Report Timeline</h3>
+          <div class="report-timeline" id="reportTimeline"></div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/progress.js"></script>
+</body>
+</html>

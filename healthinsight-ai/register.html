@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account — HealthInsight AI</title>
+  <meta name="description" content="Create your free HealthInsight AI account and start analyzing your health reports today.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body { min-height:100vh; display:grid; grid-template-columns:1fr 1.5fr; }
+    .auth-left { background:linear-gradient(145deg,#0F172A 0%,#1E3A5F 55%,#0D9488 100%); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:60px 48px; position:relative; overflow:hidden; }
+    .auth-left::before { content:''; position:absolute; width:420px; height:420px; border-radius:50%; background:rgba(37,99,235,.12); top:-100px; right:-80px; }
+    .auth-left::after  { content:''; position:absolute; width:260px; height:260px; border-radius:50%; background:rgba(20,184,166,.1); bottom:-50px; left:-50px; }
+    .auth-brand { display:flex; align-items:center; gap:12px; color:#fff; font-size:1.5rem; font-weight:800; margin-bottom:40px; z-index:1; }
+    .auth-brand-icon { width:48px; height:48px; background:rgba(255,255,255,.15); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; }
+    .feature-list { z-index:1; display:flex; flex-direction:column; gap:18px; width:100%; }
+    .feature-row { display:flex; align-items:center; gap:14px; }
+    .feature-row-icon { width:40px; height:40px; border-radius:10px; background:rgba(255,255,255,.12); display:flex; align-items:center; justify-content:center; color:#60A5FA; font-size:1rem; flex-shrink:0; }
+    .feature-row span { font-size:.9rem; color:rgba(255,255,255,.85); }
+    .auth-right { display:flex; align-items:center; justify-content:center; padding:48px 40px; background:var(--bg); overflow-y:auto; }
+    .auth-box  { width:100%; max-width:520px; }
+    .auth-box-header { margin-bottom:28px; }
+    .auth-box-header h1 { font-size:1.75rem; margin-bottom:6px; }
+    .strength-track { height:6px; background:var(--border); border-radius:3px; margin-top:8px; overflow:hidden; }
+    .strength-fill  { height:100%; width:0; border-radius:3px; transition:all .4s ease; }
+    @media (max-width:900px) { body { grid-template-columns:1fr; } .auth-left { display:none; } .auth-right { padding:40px 24px; } }
+  </style>
+</head>
+<body>
+
+<!-- Left -->
+<div class="auth-left">
+  <div class="auth-brand">
+    <div class="auth-brand-icon"><i class="fas fa-heart-pulse"></i></div>
+    HealthInsight AI
+  </div>
+  <div class="feature-list">
+    <div class="feature-row"><div class="feature-row-icon"><i class="fas fa-brain"></i></div><span>AI-powered medical report analysis in seconds</span></div>
+    <div class="feature-row"><div class="feature-row-icon"><i class="fas fa-chart-line"></i></div><span>Track health trends beautifully over time</span></div>
+    <div class="feature-row"><div class="feature-row-icon"><i class="fas fa-shield-heart"></i></div><span>Early disease risk prediction alerts</span></div>
+    <div class="feature-row"><div class="feature-row-icon"><i class="fas fa-scale-balanced"></i></div><span>Side-by-side report comparison tool</span></div>
+    <div class="feature-row"><div class="feature-row-icon"><i class="fas fa-lightbulb"></i></div><span>Personalized AI health recommendations</span></div>
+    <div class="feature-row"><div class="feature-row-icon"><i class="fas fa-lock"></i></div><span>Your data is 100% secure &amp; HIPAA compliant</span></div>
+    <div class="feature-row"><div class="feature-row-icon"><i class="fas fa-file-medical"></i></div><span>Unlimited PDF &amp; image report uploads</span></div>
+  </div>
+</div>
+
+<!-- Right -->
+<div class="auth-right">
+  <div class="auth-box">
+    <a href="index.html" style="display:flex;align-items:center;gap:8px;margin-bottom:24px;font-weight:600;color:var(--text-muted);font-size:.85rem">
+      <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+    <div class="auth-box-header">
+      <h1>Create Your Account</h1>
+      <p>Already have an account? <a href="login.html" style="color:var(--primary);font-weight:600">Sign in here</a></p>
+    </div>
+
+    <form id="registerForm" novalidate>
+      <!-- Name & Email -->
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label" for="regName">Full Name</label>
+          <div class="input-group">
+            <i class="fas fa-user input-icon"></i>
+            <input type="text" id="regName" class="form-control" placeholder="John Smith" required>
+          </div>
+          <span class="form-error"></span>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="regEmail">Email Address</label>
+          <div class="input-group">
+            <i class="fas fa-envelope input-icon"></i>
+            <input type="email" id="regEmail" class="form-control" placeholder="you@example.com" required>
+          </div>
+          <span class="form-error"></span>
+        </div>
+      </div>
+
+      <!-- Phone & Age -->
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label" for="regPhone">Phone Number</label>
+          <div class="input-group">
+            <i class="fas fa-phone input-icon"></i>
+            <input type="tel" id="regPhone" class="form-control" placeholder="+91 98765 43210" required>
+          </div>
+          <span class="form-error"></span>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="regAge">Age</label>
+          <div class="input-group">
+            <i class="fas fa-calendar input-icon"></i>
+            <input type="number" id="regAge" class="form-control" placeholder="25" min="1" max="120" required>
+          </div>
+          <span class="form-error"></span>
+        </div>
+      </div>
+
+      <!-- Gender -->
+      <div class="form-group">
+        <label class="form-label" for="regGender">Gender</label>
+        <div class="input-group">
+          <i class="fas fa-venus-mars input-icon"></i>
+          <select id="regGender" class="form-control" required style="padding-left:46px">
+            <option value="">Select your gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other / Non-binary</option>
+            <option value="prefer-not">Prefer not to say</option>
+          </select>
+        </div>
+        <span class="form-error"></span>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label class="form-label" for="regPassword">Password</label>
+        <div class="input-group">
+          <i class="fas fa-lock input-icon"></i>
+          <input type="password" id="regPassword" class="form-control" placeholder="Min. 8 characters" required>
+          <button type="button" id="passToggle" class="input-toggle"><i class="fas fa-eye"></i></button>
+        </div>
+        <div class="strength-track"><div class="strength-fill" id="strengthBar"></div></div>
+        <span id="strengthText" style="font-size:.76rem;display:block;margin-top:4px"></span>
+        <span class="form-error"></span>
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="form-group">
+        <label class="form-label" for="regPassConfirm">Confirm Password</label>
+        <div class="input-group">
+          <i class="fas fa-lock input-icon"></i>
+          <input type="password" id="regPassConfirm" class="form-control" placeholder="Repeat your password" required>
+          <button type="button" id="confToggle" class="input-toggle"><i class="fas fa-eye"></i></button>
+        </div>
+        <span class="form-error"></span>
+      </div>
+
+      <!-- Terms -->
+      <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:24px">
+        <input type="checkbox" id="acceptTerms" style="width:16px;height:16px;accent-color:var(--primary);margin-top:2px;flex-shrink:0">
+        <label for="acceptTerms" style="font-size:.85rem;color:var(--text-muted)">
+          I agree to the <a href="#" style="color:var(--primary)">Terms of Service</a> and
+          <a href="#" style="color:var(--primary)">Privacy Policy</a>. I understand that HealthInsight AI is not a substitute for professional medical advice.
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-full" style="justify-content:center;padding:14px;font-size:1rem">
+        <i class="fas fa-user-plus"></i> Create Account — It's Free
+      </button>
+    </form>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/register.js"></script>
+</body>
+</html>

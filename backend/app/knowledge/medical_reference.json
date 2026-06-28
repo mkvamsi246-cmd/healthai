@@ -1,0 +1,296 @@
+{
+  "blood_sugar": {
+    "name": "Blood Sugar (Fasting)",
+    "unit": "mg/dL",
+    "ranges": {
+      "low": {"max": 70},
+      "normal": {"min": 70, "max": 100},
+      "borderline": {"min": 100, "max": 125},
+      "high": {"min": 125}
+    },
+    "meaning": "Fasting blood sugar measures the concentration of glucose in your blood after an overnight fast. It is a key indicator for prediabetes and diabetes.",
+    "health_facts": "Glucose is the primary energy source for your body's cells, but chronically high levels can damage blood vessels and nerves.",
+    "possible_risks": {
+      "low": "Hypoglycemia, causing dizziness, shakiness, confusion, or loss of consciousness.",
+      "high": "Hyperglycemia, leading to diabetes, cardiovascular disease, nerve damage (neuropathy), and kidney damage."
+    },
+    "lifestyle_recommendations": {
+      "low": "Keep quick-acting carbohydrates nearby (juice, candies). Eat balanced, regular meals.",
+      "high": "Reduce simple carbohydrate intake, increase dietary fiber, exercise regularly, and manage stress levels."
+    },
+    "doctor_consultation_advice": "Consult a doctor if blood sugar is consistently above 100 mg/dL (fasting) or below 70 mg/dL, especially if accompanied by symptoms like extreme thirst, frequent urination, or dizziness."
+  },
+  "hba1c": {
+    "name": "HbA1c (Glycated Hemoglobin)",
+    "unit": "%",
+    "ranges": {
+      "low": {"max": 4.0},
+      "normal": {"min": 4.0, "max": 5.6},
+      "borderline": {"min": 5.7, "max": 6.4},
+      "high": {"min": 6.5}
+    },
+    "meaning": "HbA1c shows your average blood sugar levels over the past 2 to 3 months. It measures the percentage of hemoglobin coated with sugar.",
+    "health_facts": "Because red blood cells live for about 120 days, HbA1c is a highly stable measure of long-term glucose management compared to daily blood sugar checks.",
+    "possible_risks": {
+      "low": "Rarely a problem unless coupled with severe liver disease or anemia types.",
+      "high": "Predictive of prediabetes (5.7%-6.4%) and diabetes (6.5%+), significantly increasing cardiovascular and kidney risks."
+    },
+    "lifestyle_recommendations": {
+      "low": "Maintain a balanced, nutritious diet.",
+      "high": "Adopt a low-glycemic diet, focus on aerobic and resistance exercise, control portion sizes, and sleep 7-8 hours nightly."
+    },
+    "doctor_consultation_advice": "A value of 5.7% or higher indicates a need to talk with your primary care provider or an endocrinologist to plan early intervention."
+  },
+  "systolic_bp": {
+    "name": "Systolic Blood Pressure",
+    "unit": "mmHg",
+    "ranges": {
+      "low": {"max": 90},
+      "normal": {"min": 90, "max": 120},
+      "borderline": {"min": 120, "max": 139},
+      "high": {"min": 140}
+    },
+    "meaning": "Systolic blood pressure measures the pressure in your arteries when your heart beats (contracts).",
+    "health_facts": "Systolic pressure naturally rises with age due to increasing stiffness of large arteries.",
+    "possible_risks": {
+      "low": "Inadequate oxygen delivery to tissues, dizziness, fainting, or shock.",
+      "high": "Hypertension, stroke, heart attack, heart failure, and arterial aneurysms."
+    },
+    "lifestyle_recommendations": {
+      "low": "Stay hydrated, increase salt intake slightly if recommended by a doctor, and avoid standing up too quickly.",
+      "high": "Follow the DASH diet (rich in veggies, fruits, lean protein), reduce sodium intake below 2,000 mg/day, and engage in daily active exercise."
+    },
+    "doctor_consultation_advice": "Values consistently over 130 mmHg (systolic) should be evaluated by a healthcare professional."
+  },
+  "diastolic_bp": {
+    "name": "Diastolic Blood Pressure",
+    "unit": "mmHg",
+    "ranges": {
+      "low": {"max": 60},
+      "normal": {"min": 60, "max": 80},
+      "borderline": {"min": 80, "max": 89},
+      "high": {"min": 90}
+    },
+    "meaning": "Diastolic blood pressure measures the pressure in your arteries when your heart rests between beats.",
+    "health_facts": "Even if your systolic pressure is normal, a high diastolic pressure alone (isolated diastolic hypertension) carries cardiovascular risks.",
+    "possible_risks": {
+      "low": "Dizziness, cold extremities, and fatigue.",
+      "high": "Damage to blood vessels, increased workload on the heart, and risk of chronic kidney disease."
+    },
+    "lifestyle_recommendations": {
+      "low": "Drink plenty of fluids throughout the day and avoid prolonged heat exposure.",
+      "high": "Limit alcohol consumption, quit smoking, manage weight, and practice mindfulness or yoga to manage stress."
+    },
+    "doctor_consultation_advice": "If your diastolic reading is repeatedly 85 mmHg or higher, consult your doctor."
+  },
+  "heart_rate": {
+    "name": "Heart Rate",
+    "unit": "bpm",
+    "ranges": {
+      "low": {"max": 60},
+      "normal": {"min": 60, "max": 100},
+      "borderline": {"min": 100, "max": 110},
+      "high": {"min": 110}
+    },
+    "meaning": "Your resting heart rate is the number of times your heart beats per minute while at complete rest.",
+    "health_facts": "Athletes often have lower resting heart rates (below 60, sometimes as low as 40 bpm) due to highly efficient cardiovascular systems.",
+    "possible_risks": {
+      "low": "Bradycardia, leading to fatigue, lightheadedness, or fainting (if not an athlete).",
+      "high": "Tachycardia, putting excessive strain on cardiac muscles, increasing the risk of arrhythmias."
+    },
+    "lifestyle_recommendations": {
+      "low": "If healthy and asymptomatic, monitor it. Avoid excess sedatives.",
+      "high": "Incorporate cardiovascular exercises, minimize caffeine and stimulant intake, and build structured sleep habits."
+    },
+    "doctor_consultation_advice": "Consult a doctor if your resting heart rate is consistently below 50 bpm (and you are not a trained athlete) or above 100 bpm."
+  },
+  "spo2": {
+    "name": "Oxygen Saturation (SpO2)",
+    "unit": "%",
+    "ranges": {
+      "low": {"max": 94},
+      "normal": {"min": 95, "max": 100},
+      "borderline": {"min": 94, "max": 95},
+      "high": {"min": 101}
+    },
+    "meaning": "SpO2 represents the percentage of oxygen-carrying hemoglobin in the blood relative to total hemoglobin.",
+    "health_facts": "Normal red blood cells require adequate oxygen saturation to fuel cells and vital organs.",
+    "possible_risks": {
+      "low": "Hypoxia, causing shortness of breath, confusion, headaches, and organ strain.",
+      "high": "Usually clinically impossible to exceed 100% unless on hyperbaric oxygen therapy."
+    },
+    "lifestyle_recommendations": {
+      "low": "Practice deep breathing exercises, maintain clean indoor ventilation, and sit upright.",
+      "high": "Continue your current lifestyle; a normal value is ideal."
+    },
+    "doctor_consultation_advice": "Any SpO2 value below 92% requires immediate medical attention."
+  },
+  "hdl": {
+    "name": "HDL Cholesterol",
+    "unit": "mg/dL",
+    "ranges": {
+      "low": {"max": 40},
+      "normal": {"min": 40, "max": 60},
+      "borderline": {"min": 35, "max": 39},
+      "high": {"min": 60}
+    },
+    "meaning": "HDL is often called 'good' cholesterol because it helps remove other forms of cholesterol from your bloodstream.",
+    "health_facts": "HDL carries cholesterol from other parts of your body back to your liver, which then removes it.",
+    "possible_risks": {
+      "low": "Increased susceptibility to plaque buildup in arteries and coronary artery disease.",
+      "high": "Highly protective against cardiovascular incidents. Extremely high values (over 100 mg/dL) are rare but benign."
+    },
+    "lifestyle_recommendations": {
+      "low": "Incorporate healthy fats (olive oil, avocados, nuts), engage in aerobic exercise, and quit smoking.",
+      "high": "Maintain a balanced dietary fat profile and active lifestyle."
+    },
+    "doctor_consultation_advice": "An HDL level below 40 mg/dL for men or 50 mg/dL for women should be discussed with a doctor."
+  },
+  "ldl": {
+    "name": "LDL Cholesterol",
+    "unit": "mg/dL",
+    "ranges": {
+      "low": {"max": 50},
+      "normal": {"min": 50, "max": 100},
+      "borderline": {"min": 100, "max": 129},
+      "high": {"min": 130}
+    },
+    "meaning": "LDL is referred to as 'bad' cholesterol. It can build up in the walls of your arteries and form plaque.",
+    "health_facts": "Plaque accumulation causes narrowing of arteries, restriction of blood flow, and clotting risk.",
+    "possible_risks": {
+      "low": "Rarely problematic, but extremely low levels (under 40 mg/dL) may link to hormonal issues.",
+      "high": "Atherosclerosis, coronary artery disease, heart attack, and stroke."
+    },
+    "lifestyle_recommendations": {
+      "low": "Discuss with a physician if it is extremely low without cholesterol-lowering drugs.",
+      "high": "Avoid trans fats, reduce saturated fats, increase soluble fiber (oatmeal, beans), and consume foods rich in Omega-3."
+    },
+    "doctor_consultation_advice": "An LDL level above 130 mg/dL suggests a need for cardiovascular risk assessment with your healthcare team."
+  },
+  "triglycerides": {
+    "name": "Triglycerides",
+    "unit": "mg/dL",
+    "ranges": {
+      "low": {"max": 49},
+      "normal": {"min": 50, "max": 150},
+      "borderline": {"min": 150, "max": 199},
+      "high": {"min": 200}
+    },
+    "meaning": "Triglycerides are a type of fat (lipid) found in your blood, representing stored excess calories.",
+    "health_facts": "When you eat, your body converts any calories it doesn't need to use right away into triglycerides.",
+    "possible_risks": {
+      "low": "Malnutrition or hyperthyroidism (uncommon).",
+      "high": "Arteriosclerosis, increased risk of heart disease, and acute pancreatitis (especially when values exceed 500 mg/dL)."
+    },
+    "lifestyle_recommendations": {
+      "low": "Ensure adequate calorie and nutrient intake.",
+      "high": "Avoid sugar and refined flour, limit alcohol, exercise weekly, and consider fish oil supplements."
+    },
+    "doctor_consultation_advice": "Consult a doctor if triglycerides are above 150 mg/dL."
+  },
+  "total_cholesterol": {
+    "name": "Total Cholesterol",
+    "unit": "mg/dL",
+    "ranges": {
+      "low": {"max": 120},
+      "normal": {"min": 120, "max": 200},
+      "borderline": {"min": 200, "max": 239},
+      "high": {"min": 240}
+    },
+    "meaning": "Total cholesterol is the overall amount of cholesterol found in your blood, containing HDL, LDL, and VLDL.",
+    "health_facts": "While cholesterol is essential for building healthy cells and hormones, excessive total levels clog blood pathways.",
+    "possible_risks": {
+      "low": "Depression, anxiety, or hyperthyroidism (if extremely low).",
+      "high": "Increased risk of coronary heart disease, vascular blockage, and stroke."
+    },
+    "lifestyle_recommendations": {
+      "low": "Maintain healthy dietary habits.",
+      "high": "Keep weight in check, increase dietary plant sterols, limit cholesterol-rich foods like red meats, and exercise."
+    },
+    "doctor_consultation_advice": "Talk with your doctor if your total cholesterol level is 200 mg/dL or higher."
+  },
+  "creatinine": {
+    "name": "Creatinine",
+    "unit": "mg/dL",
+    "ranges": {
+      "low": {"max": 0.5},
+      "normal": {"min": 0.5, "max": 1.2},
+      "borderline": {"min": 1.2, "max": 1.5},
+      "high": {"min": 1.5}
+    },
+    "meaning": "Creatinine is a waste product produced by muscles from the breakdown of a compound called creatine, filtered out by the kidneys.",
+    "health_facts": "Kidneys keep blood creatinine in a normal range. High levels are a direct sign of impaired kidney function.",
+    "possible_risks": {
+      "low": "Muscle wasting, low muscle mass, or severe liver disease.",
+      "high": "Kidney infection, glomerulonephritis, kidney failure, dehydration, or urinary tract obstruction."
+    },
+    "lifestyle_recommendations": {
+      "low": "Engage in strength training and consume adequate protein.",
+      "high": "Avoid taking creatine supplements, stay well-hydrated, and limit excess consumption of red meat."
+    },
+    "doctor_consultation_advice": "Any value over 1.2 mg/dL requires monitoring, and values above 1.5 mg/dL warrant immediate nephrology consultation."
+  },
+  "hemoglobin": {
+    "name": "Hemoglobin",
+    "unit": "g/dL",
+    "ranges": {
+      "low": {"max": 12.0},
+      "normal": {"min": 12.0, "max": 17.5},
+      "borderline": {"min": 11.0, "max": 11.9},
+      "high": {"min": 17.5}
+    },
+    "meaning": "Hemoglobin is the red blood cell protein responsible for transporting oxygen from your lungs to the rest of your body.",
+    "health_facts": "Iron is an essential building block for hemoglobin; low iron is the most common cause of low hemoglobin.",
+    "possible_risks": {
+      "low": "Anemia, causing chronic fatigue, weakness, pale skin, cold extremities, and shortness of breath.",
+      "high": "Polycythemia, leading to thicker blood, higher blood pressure, and clotting vulnerabilities."
+    },
+    "lifestyle_recommendations": {
+      "low": "Eat iron-rich foods (spinach, red meat, lentils) and foods high in Vitamin C to enhance absorption.",
+      "high": "Stay fully hydrated and consult a doctor regarding potential bone marrow or oxygenation issues."
+    },
+    "doctor_consultation_advice": "If hemoglobin is below 11.0 g/dL or above 17.5 g/dL, get a complete blood count (CBC) evaluated by your physician."
+  },
+  "bmi": {
+    "name": "Body Mass Index (BMI)",
+    "unit": "kg/m²",
+    "ranges": {
+      "low": {"max": 18.5},
+      "normal": {"min": 18.5, "max": 24.9},
+      "borderline": {"min": 25.0, "max": 29.9},
+      "high": {"min": 30.0}
+    },
+    "meaning": "BMI is a calculation of body fat based on height and weight, categorizing individuals into weight bands.",
+    "health_facts": "While BMI is a useful screening tool, it does not directly measure body fat percentage or distinguish muscle from fat.",
+    "possible_risks": {
+      "low": "Nutritional deficiencies, weakened immune system, osteoporosis, and fertility issues.",
+      "high": "Predisposition to Type 2 diabetes, heart disease, high blood pressure, osteoarthritis, and sleep apnea."
+    },
+    "lifestyle_recommendations": {
+      "low": "Increase calorie intake with nutrient-dense foods, eat small frequent meals, and focus on muscle gain.",
+      "high": "Achieve a calorie deficit through portion control, reduce processed sugar, and get at least 150 minutes of moderate activity weekly."
+    },
+    "doctor_consultation_advice": "A BMI under 18.5 or over 30 warrants talking to a registered dietitian or physician to outline a safe plan."
+  },
+  "weight": {
+    "name": "Weight",
+    "unit": "kg",
+    "ranges": {
+      "low": {"max": 45.0},
+      "normal": {"min": 45.0, "max": 90.0},
+      "borderline": {"min": 90.0, "max": 105.0},
+      "high": {"min": 105.0}
+    },
+    "meaning": "Total body weight.",
+    "health_facts": "Weight fluctuates daily due to hydration, sodium intake, and muscle glycogen stores.",
+    "possible_risks": {
+      "low": "Anorexia, undernutrition, or wasting.",
+      "high": "Obesity-related chronic comorbidities."
+    },
+    "lifestyle_recommendations": {
+      "low": "Adopt healthy caloric surpluses.",
+      "high": "Maintain a balanced, calorie-restricted meal plan with regular physical exercises."
+    },
+    "doctor_consultation_advice": "Consult your doctor if you experience sudden, unexplained weight loss or gain."
+  }
+}

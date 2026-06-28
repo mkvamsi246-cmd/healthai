@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — HealthInsight AI</title>
+  <meta name="description" content="Sign in to your HealthInsight AI account to access your health reports and analysis.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body { min-height:100vh; display:grid; grid-template-columns:1fr 1fr; }
+
+    /* ── Left Panel ── */
+    .auth-left {
+      background: linear-gradient(145deg, #0F172A 0%, #1E3A5F 55%, #0D9488 100%);
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      padding:60px; position:relative; overflow:hidden;
+    }
+    .auth-left::before { content:''; position:absolute; width:500px; height:500px; border-radius:50%; background:rgba(37,99,235,.12); top:-120px; right:-100px; }
+    .auth-left::after  { content:''; position:absolute; width:280px; height:280px; border-radius:50%; background:rgba(20,184,166,.1); bottom:-60px; left:-60px; }
+
+    .auth-brand { display:flex; align-items:center; gap:12px; color:#fff; font-size:1.5rem; font-weight:800; margin-bottom:48px; z-index:1; }
+    .auth-brand-icon { width:48px; height:48px; background:rgba(255,255,255,.15); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; color:#fff; }
+
+    .auth-hero-text { z-index:1; text-align:center; }
+    .auth-hero-text h2 { color:#fff; font-size:2rem; margin-bottom:16px; }
+    .auth-hero-text p  { color:rgba(255,255,255,.7); font-size:.95rem; max-width:340px; line-height:1.7; }
+
+    .auth-stats { display:flex; gap:32px; margin-top:48px; z-index:1; }
+    .auth-stat  { text-align:center; }
+    .auth-stat-num   { display:block; font-size:1.8rem; font-weight:900; color:#fff; }
+    .auth-stat-label { font-size:.75rem; color:rgba(255,255,255,.6); }
+
+    /* floating cards on left panel */
+    .auth-float-cards { margin-top:40px; z-index:1; display:flex; flex-direction:column; gap:12px; width:100%; max-width:300px; }
+    .auth-float-card  { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.15); border-radius:var(--radius); padding:14px 18px; backdrop-filter:blur(10px); display:flex; align-items:center; gap:12px; }
+    .auth-float-card i { font-size:1.1rem; color:#60A5FA; }
+    .auth-float-card p { font-size:.82rem; color:rgba(255,255,255,.8); margin:0; }
+
+    /* ── Right Panel ── */
+    .auth-right { display:flex; align-items:center; justify-content:center; padding:60px 48px; background:var(--bg); }
+    .auth-box   { width:100%; max-width:420px; }
+    .auth-box-header { margin-bottom:32px; }
+    .auth-box-header h1 { font-size:1.85rem; margin-bottom:8px; }
+
+    .demo-hint { background:linear-gradient(135deg,rgba(37,99,235,.07),rgba(20,184,166,.07)); border:1px solid rgba(37,99,235,.18); border-radius:var(--radius); padding:13px 16px; font-size:.82rem; margin-bottom:24px; display:flex; gap:10px; align-items:flex-start; }
+    .demo-hint i { color:var(--primary); margin-top:1px; }
+
+    .divider { display:flex; align-items:center; gap:12px; margin:22px 0; }
+    .divider::before,.divider::after { content:''; flex:1; height:1px; background:var(--border); }
+    .divider span { font-size:.8rem; color:var(--text-light); white-space:nowrap; }
+
+    .social-login { display:flex; gap:12px; }
+    .social-btn   { flex:1; padding:11px; border-radius:var(--radius); border:1.5px solid var(--border); background:var(--card); display:flex; align-items:center; justify-content:center; gap:8px; font-size:.88rem; font-weight:600; color:var(--text); transition:all var(--transition); cursor:pointer; }
+    .social-btn:hover { border-color:var(--primary); background:var(--primary-light); color:var(--primary); }
+
+    @media (max-width:768px) {
+      body { grid-template-columns:1fr; }
+      .auth-left  { display:none; }
+      .auth-right { padding:40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Left Panel -->
+<div class="auth-left">
+  <div class="auth-brand">
+    <div class="auth-brand-icon"><i class="fas fa-heart-pulse"></i></div>
+    HealthInsight AI
+  </div>
+  <div class="auth-hero-text">
+    <h2>Welcome Back 👋</h2>
+    <p>Sign in to access your personalized health dashboard, AI-analyzed reports, and wellness journey tracking.</p>
+  </div>
+  <div class="auth-float-cards">
+    <div class="auth-float-card">
+      <i class="fas fa-chart-line"></i>
+      <p>Your Health Score improved by <strong style="color:#4ADE80">+14 points</strong> this month!</p>
+    </div>
+    <div class="auth-float-card">
+      <i class="fas fa-vial"></i>
+      <p>HbA1c dropped from 8.1% → 7.2% — keep it up!</p>
+    </div>
+  </div>
+  <div class="auth-stats">
+    <div class="auth-stat"><span class="auth-stat-num">50K+</span><span class="auth-stat-label">Reports Analyzed</span></div>
+    <div class="auth-stat"><span class="auth-stat-num">98%</span><span class="auth-stat-label">Accuracy</span></div>
+    <div class="auth-stat"><span class="auth-stat-num">12K+</span><span class="auth-stat-label">Happy Users</span></div>
+  </div>
+</div>
+
+<!-- Right Panel -->
+<div class="auth-right">
+  <div class="auth-box">
+    <a href="index.html" style="display:flex;align-items:center;gap:8px;margin-bottom:32px;font-weight:600;color:var(--text-muted);font-size:.85rem">
+      <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+    <div class="auth-box-header">
+      <h1>Sign In</h1>
+      <p>Don't have an account? <a href="register.html" style="color:var(--primary);font-weight:600">Create one free</a></p>
+    </div>
+
+    <div class="demo-hint">
+      <i class="fas fa-circle-info"></i>
+      <div><strong>Demo:</strong> Enter any email &amp; password (min. 6 chars) to explore the full dashboard.</div>
+    </div>
+
+    <form id="loginForm" novalidate>
+      <div class="form-group">
+        <label class="form-label" for="loginEmail">Email Address</label>
+        <div class="input-group">
+          <i class="fas fa-envelope input-icon"></i>
+          <input type="email" id="loginEmail" class="form-control" placeholder="you@example.com" autocomplete="email" required>
+        </div>
+        <span class="form-error"></span>
+      </div>
+
+      <div class="form-group">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <label class="form-label" for="loginPassword" style="margin-bottom:0">Password</label>
+          <a href="#" id="forgotPassword" style="font-size:.82rem;color:var(--primary);font-weight:500">Forgot password?</a>
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock input-icon"></i>
+          <input type="password" id="loginPassword" class="form-control" placeholder="••••••••" autocomplete="current-password" required>
+          <button type="button" id="passToggle" class="input-toggle"><i class="fas fa-eye"></i></button>
+        </div>
+        <span class="form-error"></span>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:24px">
+        <input type="checkbox" id="rememberMe" style="width:16px;height:16px;accent-color:var(--primary)">
+        <label for="rememberMe" style="font-size:.88rem;cursor:pointer">Remember me for 30 days</label>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-full" style="justify-content:center;padding:14px;font-size:1rem">
+        <i class="fas fa-arrow-right-to-bracket"></i> Sign In
+      </button>
+    </form>
+
+    <div class="divider"><span>or continue with</span></div>
+    <div class="social-login">
+      <button class="social-btn" onclick="window.HI.Toast.info('Social login — coming soon!')">
+        <i class="fab fa-google" style="color:#EA4335"></i> Google
+      </button>
+      <button class="social-btn" onclick="window.HI.Toast.info('Social login — coming soon!')">
+        <i class="fab fa-apple"></i> Apple
+      </button>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/login.js"></script>
+</body>
+</html>

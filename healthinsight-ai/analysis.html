@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report Analysis — HealthInsight AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/analysis.css">
+</head>
+<body>
+<div class="dash-layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo"><div class="sidebar-logo-icon"><i class="fas fa-heart-pulse"></i></div><span class="sidebar-logo-text">HealthInsight AI</span></div>
+      <button class="sidebar-toggle" id="sidebarToggle"><i class="fas fa-chevron-left"></i></button>
+    </div>
+    <nav class="sidebar-nav">
+      <span class="nav-section-label">Main</span>
+      <a href="dashboard.html" class="nav-item"><i class="fas fa-grid-2"></i><span class="nav-item-text">Dashboard</span></a>
+      <a href="upload.html" class="nav-item"><i class="fas fa-cloud-arrow-up"></i><span class="nav-item-text">Upload Report</span></a>
+      <a href="reports.html" class="nav-item active"><i class="fas fa-folder-open"></i><span class="nav-item-text">My Reports</span><span class="nav-badge">8</span></a>
+      <a href="compare.html" class="nav-item"><i class="fas fa-scale-balanced"></i><span class="nav-item-text">Compare Reports</span></a>
+      <a href="progress.html" class="nav-item"><i class="fas fa-chart-line"></i><span class="nav-item-text">Progress</span></a>
+      <span class="nav-section-label">Account</span>
+      <a href="profile.html" class="nav-item"><i class="fas fa-circle-user"></i><span class="nav-item-text">Profile</span></a>
+      <a href="index.html" class="nav-item"><i class="fas fa-house"></i><span class="nav-item-text">Home Page</span></a>
+    </nav>
+    <div class="sidebar-footer">
+      <a href="login.html" class="nav-item" style="color:#EF4444"><i class="fas fa-right-from-bracket"></i><span class="nav-item-text">Logout</span></a>
+    </div>
+  </aside>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- Main -->
+  <main class="dash-main">
+    <div class="dash-topbar">
+      <div class="topbar-left">
+        <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+        <div><div class="topbar-title">Report Analysis</div><div class="topbar-subtitle">Blood Test — Jun 20, 2025</div></div>
+      </div>
+      <div class="topbar-right">
+        <button class="theme-toggle" data-theme-toggle><i class="fas fa-moon"></i></button>
+        <button id="downloadReport" class="btn btn-primary btn-sm"><i class="fas fa-download"></i> Download PDF</button>
+        <div class="user-avatar" onclick="window.location.href='profile.html'">JS</div>
+      </div>
+    </div>
+
+    <div class="dash-content">
+
+      <!-- Patient Card -->
+      <div class="patient-card">
+        <div class="patient-avatar-big">JS</div>
+        <div class="patient-info">
+          <h2>John Smith</h2>
+          <p>Report: Blood Test Report — June 2025</p>
+          <div class="patient-meta">
+            <span class="patient-meta-item"><i class="fas fa-calendar"></i> Jun 20, 2025</span>
+            <span class="patient-meta-item"><i class="fas fa-male"></i> Male, 34 yrs</span>
+            <span class="patient-meta-item"><i class="fas fa-hospital"></i> City Diagnostics Lab</span>
+            <span class="patient-meta-item"><i class="fas fa-file-pdf"></i> PDF, 2.4 MB</span>
+          </div>
+        </div>
+        <span class="report-badge"><i class="fas fa-brain"></i> AI Analyzed</span>
+      </div>
+
+      <!-- Health Score + Values -->
+      <div style="display:grid;grid-template-columns:1fr 2.5fr;gap:24px;margin-bottom:24px;align-items:start">
+        <!-- Donut -->
+        <div class="score-donut-wrap">
+          <div class="score-donut" id="scoreDonut"></div>
+          <h4 style="margin-bottom:4px">Overall Health Score</h4>
+          <p style="font-size:.8rem">Based on 10 parameters</p>
+          <div style="display:flex;gap:12px;margin-top:8px">
+            <span class="badge badge-success">3 Normal</span>
+            <span class="badge badge-warning">4 Borderline</span>
+            <span class="badge badge-danger">3 High</span>
+          </div>
+        </div>
+
+        <!-- Values table -->
+        <div class="card" style="padding:0;overflow:hidden">
+          <div style="padding:20px 24px;border-bottom:1px solid var(--border)">
+            <h3>Medical Parameters</h3>
+          </div>
+          <div class="table-wrap" style="border:none">
+            <table>
+              <thead>
+                <tr>
+                  <th>Parameter</th>
+                  <th>Current Value</th>
+                  <th>Normal Range</th>
+                  <th>Level</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="medValuesBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Risk Cards -->
+      <div class="card" style="margin-bottom:24px">
+        <h3 style="margin-bottom:20px"><i class="fas fa-triangle-exclamation" style="color:var(--warning)"></i> Risk Prediction</h3>
+        <div class="risk-grid" id="riskGrid"></div>
+      </div>
+
+      <!-- AI Summary + Suggestions -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px">
+
+        <!-- AI Summary -->
+        <div class="ai-summary-card">
+          <span class="ai-badge"><i class="fas fa-robot"></i> AI Health Summary</span>
+          <div class="ai-summary-text">
+            Your blood test results indicate you are managing diabetes with moderate control. HbA1c at 7.2% is an improvement from 8.1% but still above the optimal range (&lt;5.7%). Your LDL cholesterol is elevated at 148 mg/dL, increasing cardiovascular risk. Blood pressure is slightly elevated at 128/82 mmHg. Positive note: your hemoglobin, creatinine, and heart rate are all within normal limits, suggesting good kidney and blood health.
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <span class="badge badge-success"><i class="fas fa-arrow-trend-down"></i> HbA1c Improving</span>
+            <span class="badge badge-danger"><i class="fas fa-arrow-up"></i> LDL Elevated</span>
+            <span class="badge badge-warning"><i class="fas fa-minus"></i> BP Borderline</span>
+          </div>
+        </div>
+
+        <!-- Suggestions -->
+        <div class="card">
+          <h3 style="margin-bottom:16px"><i class="fas fa-lightbulb" style="color:var(--secondary)"></i> Personalized Suggestions</h3>
+          <div class="suggestions-list">
+            <div class="suggestion-item">
+              <div class="suggestion-icon" style="background:linear-gradient(135deg,#22C55E,#4ADE80)"><i class="fas fa-salad"></i></div>
+              <div>
+                <h4>Low-Carb Diet</h4>
+                <p>Reduce refined carbs and sugar. Focus on vegetables, lean protein, and whole grains.</p>
+              </div>
+            </div>
+            <div class="suggestion-item">
+              <div class="suggestion-icon" style="background:linear-gradient(135deg,#2563EB,#60A5FA)"><i class="fas fa-person-running"></i></div>
+              <div>
+                <h4>30 Min Daily Walk</h4>
+                <p>Regular aerobic exercise helps lower blood sugar and cholesterol naturally.</p>
+              </div>
+            </div>
+            <div class="suggestion-item">
+              <div class="suggestion-icon" style="background:linear-gradient(135deg,#14B8A6,#34D399)"><i class="fas fa-pills"></i></div>
+              <div>
+                <h4>Medication Review</h4>
+                <p>Consult your doctor about adjusting diabetes medication given improved HbA1c.</p>
+              </div>
+            </div>
+            <div class="suggestion-item">
+              <div class="suggestion-icon" style="background:linear-gradient(135deg,#8B5CF6,#A78BFA)"><i class="fas fa-moon"></i></div>
+              <div>
+                <h4>7–8 Hours Sleep</h4>
+                <p>Poor sleep can worsen insulin resistance and blood pressure. Prioritize rest.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Health Facts -->
+      <div class="card">
+        <h3 style="margin-bottom:16px"><i class="fas fa-circle-info" style="color:var(--primary)"></i> Health Facts</h3>
+        <div class="facts-grid">
+          <div class="fact-card"><i class="fas fa-droplet"></i><p>HbA1c measures your average blood sugar over the past 2–3 months. Values below 5.7% are considered normal.</p></div>
+          <div class="fact-card"><i class="fas fa-heart"></i><p>LDL cholesterol above 130 mg/dL increases the risk of plaque buildup in arteries, leading to heart disease.</p></div>
+          <div class="fact-card"><i class="fas fa-weight-scale"></i><p>A BMI of 27.4 (overweight range) increases risk for type 2 diabetes, hypertension, and sleep apnea.</p></div>
+          <div class="fact-card"><i class="fas fa-gauge-high"></i><p>Blood pressure of 128/82 mmHg is Stage 1 Hypertension. Lifestyle changes can often normalize it without medication.</p></div>
+          <div class="fact-card"><i class="fas fa-kidney"></i><p>Your creatinine level of 1.1 mg/dL is within normal range, indicating healthy kidney function.</p></div>
+          <div class="fact-card"><i class="fas fa-shield-heart"></i><p>HDL (good) cholesterol of 52 mg/dL is above the minimum threshold of 40 mg/dL — keep maintaining it with exercise.</p></div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/analysis.js"></script>
+</body>
+</html>

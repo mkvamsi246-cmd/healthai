@@ -1,0 +1,46 @@
+# ==========================================
+# HealthInsight AI - Git Ignore Configurations
+# ==========================================
+
+# Python Bytecode & Cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+ActiveState.venv/
+
+# Local Configurations & Secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Databases & SQLite files
+*.db
+*.sqlite
+*.sqlite3
+mysql_data/
+
+# Application Specific Dirs
+backend/uploads/*
+!backend/uploads/.gitkeep
+backend/generated_reports/*
+!backend/generated_reports/.gitkeep
+backend/test_generated_reports/*
+backend/scratch/*
+
+# IDE and System Files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+.gemini/
+antigravity-ide/

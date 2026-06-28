@@ -1,0 +1,52 @@
+==================================================
+CLASSIFICATION REPORTS GRID
+==================================================
+
+Target: Heart Disease Risk
+--------------------------------------------------
+              precision    recall  f1-score   support
+
+         Low       1.00      0.97      0.98       398
+    Moderate       0.75      0.95      0.84        38
+        High       0.67      1.00      0.80         4
+
+    accuracy                           0.97       440
+   macro avg       0.81      0.97      0.87       440
+weighted avg       0.98      0.97      0.97       440
+
+Target: Diabetes Risk
+--------------------------------------------------
+              precision    recall  f1-score   support
+
+         Low       0.99      0.99      0.99       387
+    Moderate       0.83      0.79      0.81        19
+        High       0.94      0.97      0.96        34
+
+    accuracy                           0.98       440
+   macro avg       0.92      0.92      0.92       440
+weighted avg       0.98      0.98      0.98       440
+
+Target: Kidney Disease Risk
+--------------------------------------------------
+              precision    recall  f1-score   support
+
+         Low       1.00      0.98      0.99       380
+    Moderate       0.68      1.00      0.81        21
+        High       1.00      0.95      0.97        39
+
+    accuracy                           0.98       440
+   macro avg       0.89      0.98      0.92       440
+weighted avg       0.98      0.98      0.98       440
+
+Target: Stroke Risk
+--------------------------------------------------
+              precision    recall  f1-score   support
+
+         Low       0.99      0.95      0.97       349
+    Moderate       0.75      0.85      0.80        61
+        High       0.81      0.97      0.88        30
+
+    accuracy                           0.94       440
+   macro avg       0.85      0.92      0.88       440
+weighted avg       0.95      0.94      0.94       440
+

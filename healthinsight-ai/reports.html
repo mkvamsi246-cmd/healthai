@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Reports — HealthInsight AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/reports.css">
+</head>
+<body>
+<div class="dash-layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo"><div class="sidebar-logo-icon"><i class="fas fa-heart-pulse"></i></div><span class="sidebar-logo-text">HealthInsight AI</span></div>
+      <button class="sidebar-toggle" id="sidebarToggle"><i class="fas fa-chevron-left"></i></button>
+    </div>
+    <nav class="sidebar-nav">
+      <span class="nav-section-label">Main</span>
+      <a href="dashboard.html" class="nav-item"><i class="fas fa-grid-2"></i><span class="nav-item-text">Dashboard</span></a>
+      <a href="upload.html" class="nav-item"><i class="fas fa-cloud-arrow-up"></i><span class="nav-item-text">Upload Report</span></a>
+      <a href="reports.html" class="nav-item active"><i class="fas fa-folder-open"></i><span class="nav-item-text">My Reports</span><span class="nav-badge">8</span></a>
+      <a href="compare.html" class="nav-item"><i class="fas fa-scale-balanced"></i><span class="nav-item-text">Compare Reports</span></a>
+      <a href="progress.html" class="nav-item"><i class="fas fa-chart-line"></i><span class="nav-item-text">Progress</span></a>
+      <span class="nav-section-label">Account</span>
+      <a href="profile.html" class="nav-item"><i class="fas fa-circle-user"></i><span class="nav-item-text">Profile</span></a>
+      <a href="index.html" class="nav-item"><i class="fas fa-house"></i><span class="nav-item-text">Home Page</span></a>
+    </nav>
+    <div class="sidebar-footer">
+      <a href="login.html" class="nav-item" style="color:#EF4444"><i class="fas fa-right-from-bracket"></i><span class="nav-item-text">Logout</span></a>
+    </div>
+  </aside>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- Main -->
+  <main class="dash-main">
+    <div class="dash-topbar">
+      <div class="topbar-left">
+        <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+        <div><div class="topbar-title">My Reports</div><div class="topbar-subtitle"><span id="reportCount">8</span> reports uploaded</div></div>
+      </div>
+      <div class="topbar-right">
+        <button class="theme-toggle" data-theme-toggle><i class="fas fa-moon"></i></button>
+        <a href="upload.html" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Upload New</a>
+        <div class="user-avatar" onclick="window.location.href='profile.html'">JS</div>
+      </div>
+    </div>
+
+    <div class="dash-content">
+      <div class="dash-page-header">
+        <h1>My Reports</h1>
+        <p>All your uploaded medical reports in one place. Analyze, compare, or download any report.</p>
+      </div>
+
+      <!-- Summary stats -->
+      <div class="stats-grid" style="margin-bottom:24px">
+        <div class="stat-card blue" style="padding:18px">
+          <div class="stat-card-top">
+            <div class="stat-card-icon"><i class="fas fa-folder-open"></i></div>
+          </div>
+          <div class="stat-card-value">8</div>
+          <div class="stat-card-label">Total Reports</div>
+        </div>
+        <div class="stat-card teal" style="padding:18px">
+          <div class="stat-card-top">
+            <div class="stat-card-icon"><i class="fas fa-file-pdf"></i></div>
+          </div>
+          <div class="stat-card-value">6</div>
+          <div class="stat-card-label">PDF Reports</div>
+        </div>
+        <div class="stat-card green" style="padding:18px">
+          <div class="stat-card-top">
+            <div class="stat-card-icon"><i class="fas fa-image"></i></div>
+          </div>
+          <div class="stat-card-value">2</div>
+          <div class="stat-card-label">Image Reports</div>
+        </div>
+        <div class="stat-card orange" style="padding:18px">
+          <div class="stat-card-top">
+            <div class="stat-card-icon"><i class="fas fa-brain"></i></div>
+          </div>
+          <div class="stat-card-value">7</div>
+          <div class="stat-card-label">Analyzed</div>
+        </div>
+      </div>
+
+      <!-- Toolbar -->
+      <div class="reports-toolbar">
+        <div class="reports-search">
+          <i class="fas fa-magnifying-glass"></i>
+          <input type="text" id="searchReports" placeholder="Search reports by name…">
+        </div>
+        <select id="filterDate" class="filter-select">
+          <option value="newest">Newest First</option>
+          <option value="oldest">Oldest First</option>
+        </select>
+        <select id="filterType" class="filter-select">
+          <option value="all">All Types</option>
+          <option value="blood">Blood Test</option>
+          <option value="diabetes">Diabetes</option>
+          <option value="cholesterol">Lipid</option>
+          <option value="kidney">Kidney</option>
+          <option value="general">General</option>
+          <option value="thyroid">Thyroid</option>
+        </select>
+        <div class="view-toggle">
+          <button class="view-toggle-btn active" data-view="grid" title="Grid View">
+            <i class="fas fa-grip"></i>
+          </button>
+          <button class="view-toggle-btn" data-view="list" title="List View">
+            <i class="fas fa-list"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Reports grid/list -->
+      <div class="reports-grid" id="reportsContainer"></div>
+      <div class="no-results" id="noResults">
+        <i class="fas fa-folder-open"></i>
+        <h3>No reports found</h3>
+        <p>Try adjusting your search or filter criteria.</p>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/reports.js"></script>
+</body>
+</html>

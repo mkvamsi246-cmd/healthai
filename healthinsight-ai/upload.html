@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Report — HealthInsight AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/upload.css">
+</head>
+<body>
+<div class="dash-layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">
+        <div class="sidebar-logo-icon"><i class="fas fa-heart-pulse"></i></div>
+        <span class="sidebar-logo-text">HealthInsight AI</span>
+      </div>
+      <button class="sidebar-toggle" id="sidebarToggle"><i class="fas fa-chevron-left"></i></button>
+    </div>
+    <nav class="sidebar-nav">
+      <span class="nav-section-label">Main</span>
+      <a href="dashboard.html" class="nav-item"><i class="fas fa-grid-2"></i><span class="nav-item-text">Dashboard</span></a>
+      <a href="upload.html" class="nav-item active"><i class="fas fa-cloud-arrow-up"></i><span class="nav-item-text">Upload Report</span></a>
+      <a href="reports.html" class="nav-item"><i class="fas fa-folder-open"></i><span class="nav-item-text">My Reports</span><span class="nav-badge">8</span></a>
+      <a href="compare.html" class="nav-item"><i class="fas fa-scale-balanced"></i><span class="nav-item-text">Compare Reports</span></a>
+      <a href="progress.html" class="nav-item"><i class="fas fa-chart-line"></i><span class="nav-item-text">Progress</span></a>
+      <span class="nav-section-label">Account</span>
+      <a href="profile.html" class="nav-item"><i class="fas fa-circle-user"></i><span class="nav-item-text">Profile</span></a>
+      <a href="index.html" class="nav-item"><i class="fas fa-house"></i><span class="nav-item-text">Home Page</span></a>
+    </nav>
+    <div class="sidebar-footer">
+      <a href="login.html" class="nav-item" style="color:#EF4444"><i class="fas fa-right-from-bracket"></i><span class="nav-item-text">Logout</span></a>
+    </div>
+  </aside>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- Main -->
+  <main class="dash-main">
+    <div class="dash-topbar">
+      <div class="topbar-left">
+        <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+        <div><div class="topbar-title">Upload Report</div><div class="topbar-subtitle">Add your medical documents</div></div>
+      </div>
+      <div class="topbar-right">
+        <button class="theme-toggle" data-theme-toggle><i class="fas fa-moon"></i></button>
+        <div class="user-avatar" onclick="window.location.href='profile.html'">JS</div>
+      </div>
+    </div>
+
+    <div class="dash-content">
+      <div class="dash-page-header">
+        <h1>Upload Medical Report</h1>
+        <p>Upload PDFs or images of your lab reports for AI-powered analysis</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:24px;align-items:start">
+        <!-- Left: Drop zone + progress + list -->
+        <div>
+          <!-- Drop zone -->
+          <div class="upload-zone" id="dropZone">
+            <input type="file" id="fileInput" accept=".pdf,image/*" style="position:absolute;inset:0;opacity:0;cursor:pointer">
+            <div class="upload-icon-wrap">
+              <i class="fas fa-cloud-arrow-up"></i>
+            </div>
+            <h3>Drag & Drop your report here</h3>
+            <p>or browse to choose a file from your computer</p>
+            <div class="upload-types">
+              <span class="upload-type-badge pdf"><i class="fas fa-file-pdf"></i> PDF</span>
+              <span class="upload-type-badge img"><i class="fas fa-image"></i> JPG / PNG</span>
+              <span class="upload-type-badge max"><i class="fas fa-weight-hanging"></i> Max 20 MB</span>
+            </div>
+          </div>
+
+          <!-- Upload buttons -->
+          <div style="display:flex;gap:12px;margin-top:16px">
+            <button id="uploadPdfBtn" class="btn btn-primary" style="flex:1;justify-content:center">
+              <i class="fas fa-file-pdf"></i> Upload PDF
+            </button>
+            <button id="uploadImgBtn" class="btn btn-secondary" style="flex:1;justify-content:center">
+              <i class="fas fa-image"></i> Upload Image
+            </button>
+          </div>
+
+          <!-- Progress -->
+          <div class="upload-progress-card" id="uploadProgress">
+            <div class="upload-file-icon"><i class="fas fa-file-medical"></i></div>
+            <div class="upload-file-info">
+              <div class="upload-file-name" id="uploadFileName">report.pdf</div>
+              <div class="upload-file-meta" id="uploadFileSize">2.4 MB</div>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar-fill" id="progressFill" style="width:0%"></div>
+              </div>
+            </div>
+            <div class="upload-pct" id="progressPct">0%</div>
+          </div>
+
+          <!-- Uploaded list -->
+          <div class="card" style="margin-top:24px">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+              <h3>Uploaded Reports</h3>
+              <a href="reports.html" class="btn btn-outline btn-sm">View All</a>
+            </div>
+            <div id="uploadedList" class="uploaded-list"></div>
+          </div>
+        </div>
+
+        <!-- Right: Preview + Tips -->
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <!-- Preview -->
+          <div class="card">
+            <h3 style="margin-bottom:16px">File Preview</h3>
+            <div class="preview-area" id="previewArea">
+              <div class="preview-placeholder">
+                <i class="fas fa-eye"></i>
+                <p>File preview will appear here</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tips -->
+          <div class="card">
+            <h3 style="margin-bottom:16px"><i class="fas fa-lightbulb" style="color:var(--warning)"></i> Upload Tips</h3>
+            <div class="upload-tips">
+              <div class="upload-tip">
+                <i class="fas fa-check-circle"></i>
+                <p>Ensure the report is clearly scanned and all text is readable.</p>
+              </div>
+              <div class="upload-tip">
+                <i class="fas fa-check-circle"></i>
+                <p>Include the full lab report including the reference ranges column.</p>
+              </div>
+              <div class="upload-tip">
+                <i class="fas fa-check-circle"></i>
+                <p>For best results, use a PDF export directly from your lab's portal.</p>
+              </div>
+              <div class="upload-tip">
+                <i class="fas fa-check-circle"></i>
+                <p>Make sure the patient name and date are visible on the report.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Supported types -->
+          <div class="card">
+            <h3 style="margin-bottom:16px">Supported Report Types</h3>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border-light)">
+                <i class="fas fa-check" style="color:var(--success)"></i>
+                <span style="font-size:.88rem">Complete Blood Count (CBC)</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border-light)">
+                <i class="fas fa-check" style="color:var(--success)"></i>
+                <span style="font-size:.88rem">Lipid Profile / Cholesterol Panel</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border-light)">
+                <i class="fas fa-check" style="color:var(--success)"></i>
+                <span style="font-size:.88rem">Diabetes Panel (HbA1c, Glucose)</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border-light)">
+                <i class="fas fa-check" style="color:var(--success)"></i>
+                <span style="font-size:.88rem">Kidney / Liver Function Tests</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;padding:8px 0">
+                <i class="fas fa-check" style="color:var(--success)"></i>
+                <span style="font-size:.88rem">Thyroid Panel & Full Body Checkup</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/upload.js"></script>
+</body>
+</html>

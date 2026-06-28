@@ -1,0 +1,133 @@
+/* ============================================================
+   Reports Page CSS — HealthInsight AI
+   ============================================================ */
+
+/* ── Search & Filters ──────────────────────────────────────── */
+.reports-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.reports-search {
+  flex: 1;
+  min-width: 240px;
+  position: relative;
+}
+.reports-search input {
+  width: 100%;
+  padding: 10px 16px 10px 42px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  font-size: .88rem;
+  transition: all var(--transition);
+}
+.reports-search input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37,99,235,.08); }
+.reports-search i {
+  position: absolute;
+  left: 16px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-light);
+}
+.filter-select {
+  padding: 10px 14px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  font-size: .875rem;
+  font-family: var(--font);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.filter-select:focus { border-color: var(--primary); }
+
+/* ── Reports Grid ──────────────────────────────────────────── */
+.reports-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+.report-card {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  border: 1.5px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.report-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: var(--primary); }
+.report-card-top { display: flex; align-items: flex-start; gap: 14px; }
+.report-file-icon {
+  width: 52px; height: 52px;
+  border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+.report-file-icon.pdf { background: #FEE2E2; color: #EF4444; }
+.report-file-icon.img { background: var(--primary-light); color: var(--primary); }
+.report-file-icon.lab { background: rgba(20,184,166,.1); color: var(--secondary); }
+.report-card-meta { flex: 1; }
+.report-card-name { font-weight: 700; font-size: .95rem; margin-bottom: 4px; }
+.report-card-date { font-size: .78rem; color: var(--text-muted); }
+.report-card-type-badge {
+  font-size: .7rem;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  margin-top: 6px;
+  display: inline-block;
+}
+.report-card-score { display: flex; align-items: center; justify-content: space-between; }
+.score-pill {
+  font-size: .9rem;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--primary-light), rgba(20,184,166,.1));
+  color: var(--primary);
+}
+.report-card-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.report-card-actions .btn { flex: 1; justify-content: center; }
+
+/* ── No Results ────────────────────────────────────────────── */
+.no-results {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--text-muted);
+  display: none;
+}
+.no-results i { font-size: 3rem; opacity: .3; margin-bottom: 16px; display: block; }
+.no-results.visible { display: block; }
+
+/* ── View Toggle ───────────────────────────────────────────── */
+.view-toggle {
+  display: flex;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.view-toggle-btn {
+  padding: 8px 14px;
+  background: none;
+  color: var(--text-muted);
+  font-size: .9rem;
+  transition: all var(--transition);
+}
+.view-toggle-btn.active { background: var(--primary); color: #fff; }
+
+/* Reports list view */
+.reports-list { display: flex; flex-direction: column; gap: 12px; }
+.reports-list .report-card {
+  flex-direction: row;
+  align-items: center;
+}
+.reports-list .report-card-actions { margin-left: auto; }

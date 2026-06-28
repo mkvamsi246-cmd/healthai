@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — HealthInsight AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+<div class="dash-layout">
+
+  <!-- ═══ SIDEBAR ═══ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">
+        <div class="sidebar-logo-icon"><i class="fas fa-heart-pulse"></i></div>
+        <span class="sidebar-logo-text">HealthInsight AI</span>
+      </div>
+      <button class="sidebar-toggle" id="sidebarToggle" title="Collapse sidebar">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <span class="nav-section-label">Main Menu</span>
+      <a href="dashboard.html" class="nav-item active">
+        <i class="fas fa-grid-2"></i>
+        <span class="nav-item-text">Dashboard</span>
+      </a>
+      <a href="upload.html" class="nav-item">
+        <i class="fas fa-cloud-arrow-up"></i>
+        <span class="nav-item-text">Upload Report</span>
+      </a>
+      <a href="reports.html" class="nav-item">
+        <i class="fas fa-folder-open"></i>
+        <span class="nav-item-text">My Reports</span>
+        <span class="nav-badge">8</span>
+      </a>
+      <a href="compare.html" class="nav-item">
+        <i class="fas fa-scale-balanced"></i>
+        <span class="nav-item-text">Compare Reports</span>
+      </a>
+      <a href="progress.html" class="nav-item">
+        <i class="fas fa-chart-line"></i>
+        <span class="nav-item-text">Progress</span>
+      </a>
+
+      <span class="nav-section-label">Account</span>
+      <a href="profile.html" class="nav-item">
+        <i class="fas fa-circle-user"></i>
+        <span class="nav-item-text">Profile</span>
+      </a>
+      <a href="index.html" class="nav-item">
+        <i class="fas fa-house"></i>
+        <span class="nav-item-text">Home Page</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <a href="login.html" class="nav-item" style="color:#F87171">
+        <i class="fas fa-right-from-bracket"></i>
+        <span class="nav-item-text">Logout</span>
+      </a>
+    </div>
+  </aside>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- ═══ MAIN ═══ -->
+  <main class="dash-main">
+
+    <!-- Topbar -->
+    <div class="dash-topbar">
+      <div class="topbar-left">
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div>
+          <div class="topbar-title">Dashboard</div>
+          <div class="topbar-subtitle" id="topbarDate">Sunday, June 28, 2025</div>
+        </div>
+      </div>
+
+      <div class="topbar-search">
+        <i class="fas fa-magnifying-glass"></i>
+        <input type="text" id="globalSearch" placeholder="Search reports, metrics…" aria-label="Search">
+      </div>
+
+      <div class="topbar-right">
+        <button class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="notif-btn" id="notifBtn" aria-label="Notifications">
+          <i class="fas fa-bell"></i>
+          <span class="notif-dot"></span>
+        </button>
+        <div class="user-avatar" id="userAvatar" title="Go to Profile">JS</div>
+      </div>
+    </div>
+
+    <!-- Page Content -->
+    <div class="dash-content">
+
+      <!-- Welcome Banner -->
+      <div class="welcome-card">
+        <div style="flex:1">
+          <h2>Good Morning, John! 👋</h2>
+          <p>Your health is improving — HbA1c dropped from 8.1% → 7.2% this month. Keep it up!</p>
+          <a href="upload.html" class="btn" style="margin-top:20px">
+            <i class="fas fa-cloud-arrow-up"></i> Upload New Report
+          </a>
+        </div>
+        <div style="font-size:5rem;opacity:.3;margin-left:auto">🏥</div>
+      </div>
+
+      <!-- Stat Cards -->
+      <div class="stats-grid">
+        <div class="stat-card blue">
+          <div class="stat-card-top">
+            <div class="stat-card-icon"><i class="fas fa-heart-pulse"></i></div>
+            <span class="stat-trend up"><i class="fas fa-arrow-up"></i> +14</span>
+          </div>
+          <div class="stat-card-value" data-count="82" data-suffix="">0</div>
+          <div class="stat-card-label">Health Score</div>
+          <div class="stat-card-footer">↑ Was 68 in January 2025</div>
+        </div>
+
+        <div class="stat-card teal">
+          <div class="stat-card-top">
+            <div class="stat-card-icon"><i class="fas fa-folder-medical"></i></div>
+            <span class="stat-trend up"><i class="fas fa-arrow-up"></i> +3</span>
+          </div>
+          <div class="stat-card-value" data-count="8" data-suffix="">0</div>
+          <div class="stat-card-label">Reports Uploaded</div>
+          <div class="stat-card-footer">Last upload: Jun 20, 2025</div>
+        </div>
+
+        <div class="stat-card green">
+          <div class="stat-card-top">
+            <div class="stat-card-icon"><i class="fas fa-vial"></i></div>
+            <span class="stat-trend up" style="background:#DCFCE7;color:#15803D">Improving</span>
+          </div>
+          <div class="stat-card-value" style="font-size:1.6rem">7.2%</div>
+          <div class="stat-card-label">Latest HbA1c</div>
+          <div class="stat-card-footer">↓ Borderline (was 8.1%)</div>
+        </div>
+
+        <div class="stat-card orange">
+          <div class="stat-card-top">
+            <div class="stat-card-icon"><i class="fas fa-triangle-exclamation"></i></div>
+            <span class="stat-trend down"><i class="fas fa-exclamation"></i> Alerts</span>
+          </div>
+          <div class="stat-card-value" data-count="3" data-suffix="">0</div>
+          <div class="stat-card-label">Risk Alerts</div>
+          <div class="stat-card-footer">LDL, Glucose, BP flagged</div>
+        </div>
+      </div>
+
+      <!-- Chart + Activity row -->
+      <div class="dash-grid" style="margin-bottom:24px">
+        <!-- Weekly Chart -->
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+            <div>
+              <h3 style="margin-bottom:4px">Weekly Health Score</h3>
+              <p style="font-size:.82rem">Last 7 days</p>
+            </div>
+            <span class="badge badge-success"><i class="fas fa-arrow-trend-up"></i> +6% this week</span>
+          </div>
+          <div id="weeklyChart" class="chart-bars"></div>
+        </div>
+
+        <!-- Activity -->
+        <div class="card">
+          <h3 style="margin-bottom:20px">Recent Activity</h3>
+          <div class="activity-list" id="activityList"></div>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="card" style="margin-bottom:24px">
+        <h3 style="margin-bottom:18px">Quick Actions</h3>
+        <div class="quick-actions">
+          <a href="upload.html"   class="quick-action-btn"><i class="fas fa-cloud-arrow-up"></i>Upload Report</a>
+          <a href="analysis.html" class="quick-action-btn"><i class="fas fa-brain"></i>AI Analyze</a>
+          <a href="compare.html"  class="quick-action-btn"><i class="fas fa-scale-balanced"></i>Compare</a>
+          <a href="progress.html" class="quick-action-btn"><i class="fas fa-chart-line"></i>Progress</a>
+          <a href="reports.html"  class="quick-action-btn"><i class="fas fa-folder-open"></i>My Reports</a>
+          <a href="profile.html"  class="quick-action-btn"><i class="fas fa-circle-user"></i>Profile</a>
+        </div>
+      </div>
+
+      <!-- Recent Reports Table -->
+      <div class="card">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
+          <h3>Recent Reports</h3>
+          <a href="reports.html" class="btn btn-outline btn-sm">View All Reports</a>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Report Name</th>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Score</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="recentReportsBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- /dash-content -->
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/dashboard.js"></script>
+<script>
+  // Set dynamic date
+  document.getElementById('topbarDate').textContent =
+    new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+</script>
+</body>
+</html>

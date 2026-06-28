@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: healthinsight_db
+    restart: always
+    environment:
+      MYSQL_DATABASE: healthinsight_ai
+      MYSQL_ROOT_PASSWORD: SecureRootPassword123
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-pSecureRootPassword123"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: healthinsight_web
+    restart: always
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - DATABASE_URL=mysql+pymysql://root:SecureRootPassword123@db:3306/healthinsight_ai
+      - SECRET_KEY=your-production-secret-key-change-this-in-env
+      - ALGORITHM=HS256
+      - ACCESS_TOKEN_EXPIRE_MINUTES=30
+      - UPLOAD_DIR=uploads
+      - REPORTS_DIR=generated_reports
+    volumes:
+      - ./uploads:/app/uploads
+      - ./generated_reports:/app/generated_reports
+
+volumes:
+  mysql_data:

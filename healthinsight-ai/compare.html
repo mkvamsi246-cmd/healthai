@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compare Reports — HealthInsight AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/compare.css">
+</head>
+<body>
+<div class="dash-layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo"><div class="sidebar-logo-icon"><i class="fas fa-heart-pulse"></i></div><span class="sidebar-logo-text">HealthInsight AI</span></div>
+      <button class="sidebar-toggle" id="sidebarToggle"><i class="fas fa-chevron-left"></i></button>
+    </div>
+    <nav class="sidebar-nav">
+      <span class="nav-section-label">Main</span>
+      <a href="dashboard.html" class="nav-item"><i class="fas fa-grid-2"></i><span class="nav-item-text">Dashboard</span></a>
+      <a href="upload.html" class="nav-item"><i class="fas fa-cloud-arrow-up"></i><span class="nav-item-text">Upload Report</span></a>
+      <a href="reports.html" class="nav-item"><i class="fas fa-folder-open"></i><span class="nav-item-text">My Reports</span><span class="nav-badge">8</span></a>
+      <a href="compare.html" class="nav-item active"><i class="fas fa-scale-balanced"></i><span class="nav-item-text">Compare Reports</span></a>
+      <a href="progress.html" class="nav-item"><i class="fas fa-chart-line"></i><span class="nav-item-text">Progress</span></a>
+      <span class="nav-section-label">Account</span>
+      <a href="profile.html" class="nav-item"><i class="fas fa-circle-user"></i><span class="nav-item-text">Profile</span></a>
+      <a href="index.html" class="nav-item"><i class="fas fa-house"></i><span class="nav-item-text">Home Page</span></a>
+    </nav>
+    <div class="sidebar-footer">
+      <a href="login.html" class="nav-item" style="color:#EF4444"><i class="fas fa-right-from-bracket"></i><span class="nav-item-text">Logout</span></a>
+    </div>
+  </aside>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- Main -->
+  <main class="dash-main">
+    <div class="dash-topbar">
+      <div class="topbar-left">
+        <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+        <div><div class="topbar-title">Compare Reports</div><div class="topbar-subtitle">See what changed between reports</div></div>
+      </div>
+      <div class="topbar-right">
+        <button class="theme-toggle" data-theme-toggle><i class="fas fa-moon"></i></button>
+        <div class="user-avatar" onclick="window.location.href='profile.html'">JS</div>
+      </div>
+    </div>
+
+    <div class="dash-content">
+      <div class="dash-page-header">
+        <h1>Compare Reports</h1>
+        <p>Select two reports to see a detailed side-by-side comparison of your health parameters</p>
+      </div>
+
+      <!-- Report Selectors -->
+      <div class="compare-selectors">
+        <div class="report-select-card left">
+          <div class="report-select-label">Previous Report</div>
+          <select class="report-selector" id="selectPrev">
+            <option value="1" selected>HbA1c Panel — Jan 15, 2025</option>
+            <option value="2">Lipid Profile — Mar 05, 2025</option>
+            <option value="3">Blood Test — Apr 22, 2025</option>
+          </select>
+          <div style="margin-top:10px;font-size:.82rem;color:var(--text-muted)">
+            <i class="fas fa-calendar"></i> Jan 15, 2025 &bull; Score: <strong style="color:var(--primary)">68</strong>/100
+          </div>
+        </div>
+        <div class="compare-vs">VS</div>
+        <div class="report-select-card right">
+          <div class="report-select-label">Current Report</div>
+          <select class="report-selector" id="selectCurr">
+            <option value="4">Blood Test Report — Jun 20, 2025</option>
+            <option value="5" selected>HbA1c Panel — Jun 12, 2025</option>
+            <option value="6">Lipid Profile — May 28, 2025</option>
+          </select>
+          <div style="margin-top:10px;font-size:.82rem;color:var(--text-muted)">
+            <i class="fas fa-calendar"></i> Jun 20, 2025 &bull; Score: <strong style="color:var(--secondary)">82</strong>/100
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-bottom:24px">
+        <button id="compareBtn" class="btn btn-primary">
+          <i class="fas fa-scale-balanced"></i> Compare Selected Reports
+        </button>
+      </div>
+
+      <!-- Improvement Banner -->
+      <div class="improvement-banner">
+        <div>
+          <i class="fas fa-trophy" style="font-size:2rem;color:var(--success)"></i>
+        </div>
+        <div style="flex:1">
+          <div class="improvement-pct" id="overallPct">0%</div>
+          <h3>Overall Improvement</h3>
+          <p><span id="statImproved">0</span> parameters improved &bull; <span id="statWorse">0</span> parameters worsened &bull; 1 unchanged</p>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:.8rem;color:var(--text-muted);margin-bottom:6px">Health Score</div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <div style="text-align:center">
+              <span style="font-size:1.8rem;font-weight:900;color:var(--primary)">68</span>
+              <div style="font-size:.72rem;color:var(--text-muted)">Previous</div>
+            </div>
+            <i class="fas fa-arrow-right" style="color:var(--success)"></i>
+            <div style="text-align:center">
+              <span style="font-size:1.8rem;font-weight:900;color:var(--secondary)">82</span>
+              <div style="font-size:.72rem;color:var(--text-muted)">Current</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Before / After Cards -->
+      <div class="before-after-grid" style="margin-bottom:24px">
+        <div class="card before-card">
+          <div class="ba-label"><i class="fas fa-calendar-alt"></i> Previous Report — Jan 15, 2025</div>
+          <div class="ba-score">68</div>
+          <div class="ba-score-label">Health Score</div>
+          <div class="ba-stats">
+            <div class="ba-stat-row"><span>HbA1c</span><span style="color:var(--danger)">8.1%</span></div>
+            <div class="ba-stat-row"><span>Blood Sugar</span><span style="color:var(--danger)">142 mg/dL</span></div>
+            <div class="ba-stat-row"><span>LDL</span><span style="color:var(--danger)">162 mg/dL</span></div>
+            <div class="ba-stat-row"><span>Blood Pressure</span><span style="color:var(--warning)">132/86 mmHg</span></div>
+            <div class="ba-stat-row"><span>BMI</span><span style="color:var(--warning)">28.1 kg/m²</span></div>
+          </div>
+          <div style="margin-top:12px">
+            <div style="font-size:.78rem;color:var(--text-muted);margin-bottom:6px">Score Progress</div>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar-fill" id="prevScoreBar" style="width:0%;background:var(--primary)"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card after-card">
+          <div class="ba-label"><i class="fas fa-calendar-check"></i> Current Report — Jun 20, 2025</div>
+          <div class="ba-score">82</div>
+          <div class="ba-score-label">Health Score</div>
+          <div class="ba-stats">
+            <div class="ba-stat-row"><span>HbA1c</span><span style="color:var(--warning)">7.2%</span></div>
+            <div class="ba-stat-row"><span>Blood Sugar</span><span style="color:var(--warning)">126 mg/dL</span></div>
+            <div class="ba-stat-row"><span>LDL</span><span style="color:var(--warning)">148 mg/dL</span></div>
+            <div class="ba-stat-row"><span>Blood Pressure</span><span style="color:var(--warning)">128/82 mmHg</span></div>
+            <div class="ba-stat-row"><span>BMI</span><span style="color:var(--warning)">27.4 kg/m²</span></div>
+          </div>
+          <div style="margin-top:12px">
+            <div style="font-size:.78rem;color:var(--text-muted);margin-bottom:6px">Score Progress</div>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar-fill" id="currScoreBar" style="width:0%;background:var(--secondary)"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparison Table -->
+      <div class="card" style="margin-bottom:24px">
+        <h3 style="margin-bottom:20px">Detailed Parameter Comparison</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th style="color:var(--primary)">Previous Value</th>
+                <th style="color:var(--secondary)">Current Value</th>
+                <th>Difference</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="compareBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Progress Chart -->
+      <div class="card">
+        <h3 style="margin-bottom:16px"><i class="fas fa-chart-bar" style="color:var(--primary)"></i> Health Score Progress (6 Months)</h3>
+        <div id="progressChart"></div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/compare.js"></script>
+</body>
+</html>

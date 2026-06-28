@@ -1,0 +1,166 @@
+/* ============================================================
+   Progress Page CSS — HealthInsight AI
+   ============================================================ */
+
+/* ── Trend Cards ───────────────────────────────────────────── */
+.trend-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  margin-bottom: 28px;
+}
+.trend-card {
+  background: var(--card);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+}
+.trend-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+.trend-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+.trend-card-title { font-size: 1rem; font-weight: 700; margin-bottom: 2px; }
+.trend-card-value { font-size: 2rem; font-weight: 900; }
+.trend-card-unit  { font-size: .85rem; color: var(--text-muted); font-weight: 500; }
+.trend-card-change {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: .78rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+.trend-card-change.up   { background: #DCFCE7; color: #15803D; }
+.trend-card-change.down { background: #FEE2E2; color: #B91C1C; }
+.trend-card-change.neutral { background: var(--border-light); color: var(--text-muted); }
+
+/* Mini Sparkline */
+.sparkline {
+  height: 60px;
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  margin-top: 16px;
+}
+.spark-bar {
+  flex: 1;
+  border-radius: 3px 3px 0 0;
+  min-height: 6px;
+  transition: height .5s ease;
+}
+.spark-bar.blue   { background: linear-gradient(180deg, rgba(37,99,235,.8), rgba(37,99,235,.2)); }
+.spark-bar.teal   { background: linear-gradient(180deg, rgba(20,184,166,.8), rgba(20,184,166,.2)); }
+.spark-bar.green  { background: linear-gradient(180deg, rgba(34,197,94,.8), rgba(34,197,94,.2)); }
+.spark-bar.orange { background: linear-gradient(180deg, rgba(245,158,11,.8), rgba(245,158,11,.2)); }
+.spark-bar.red    { background: linear-gradient(180deg, rgba(239,68,68,.8), rgba(239,68,68,.2)); }
+.spark-bar.purple { background: linear-gradient(180deg, rgba(139,92,246,.8), rgba(139,92,246,.2)); }
+.spark-bar:hover  { filter: brightness(1.2); }
+.spark-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+.spark-labels span { font-size: .65rem; color: var(--text-light); }
+
+/* ── Timeline ──────────────────────────────────────────────── */
+.report-timeline { display: flex; flex-direction: column; gap: 0; }
+.timeline-item {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 28px;
+  position: relative;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 20px; top: 36px; bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item:last-child::before { display: none; }
+.timeline-dot {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  font-size: .85rem;
+  flex-shrink: 0;
+  z-index: 1;
+  box-shadow: 0 0 0 4px var(--bg);
+}
+.timeline-body {
+  flex: 1;
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 18px;
+  border: 1px solid var(--border);
+}
+.timeline-date { font-size: .75rem; color: var(--text-muted); margin-bottom: 4px; }
+.timeline-title { font-weight: 700; font-size: .9rem; margin-bottom: 6px; }
+.timeline-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.timeline-tag {
+  font-size: .7rem;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  background: var(--primary-light);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* ── Monthly Progress ──────────────────────────────────────── */
+.monthly-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+.monthly-card {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  border: 1px solid var(--border);
+  text-align: center;
+  transition: all var(--transition);
+}
+.monthly-card:hover { box-shadow: var(--shadow); }
+.monthly-month { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--text-muted); margin-bottom: 8px; }
+.monthly-score { font-size: 2.5rem; font-weight: 900; margin-bottom: 4px; }
+.monthly-change { font-size: .78rem; font-weight: 700; }
+.monthly-change.up   { color: var(--success); }
+.monthly-change.down { color: var(--danger); }
+
+/* ── Overall Graph Placeholder ─────────────────────────────── */
+.big-chart-area {
+  background: var(--bg);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-lg);
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.big-chart-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  height: 200px;
+  padding: 20px 40px;
+  width: 100%;
+}
+.big-bar-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.big-bar {
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+  background: linear-gradient(180deg, var(--primary), var(--secondary));
+  opacity: .75;
+  transition: all .5s ease;
+}
+.big-bar:hover { opacity: 1; transform: scaleY(1.03); transform-origin: bottom; }
+.big-bar-label { font-size: .72rem; color: var(--text-muted); }
+.big-bar-value { font-size: .72rem; font-weight: 700; color: var(--primary); }
