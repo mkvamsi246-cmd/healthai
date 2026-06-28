@@ -2,21 +2,13 @@
 # HealthInsight AI - Root Dockerfile
 # ==========================================
 
-FROM python:3.12-slim
+FROM python:3.12
 
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 ENV PORT=8000
 
 WORKDIR /app
-
-# Install system dependencies needed for OpenCV, EasyOCR, and building wheels with retries for network resilience
-RUN apt-get clean && apt-get update -o Acquire::Retries=3 && apt-get install -y -o Acquire::Retries=3 --no-install-recommends \
-    build-essential \
-    libgl1-mesa-glx \
-    libglib2.0-0 \
-    libgomp1 \
-    && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements from the backend folder
 COPY backend/requirements.txt /app/
