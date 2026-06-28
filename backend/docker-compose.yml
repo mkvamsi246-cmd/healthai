@@ -7,13 +7,13 @@ services:
     restart: always
     environment:
       MYSQL_DATABASE: healthinsight_ai
-      MYSQL_ROOT_PASSWORD: SecureRootPassword123
+      MYSQL_ROOT_PASSWORD: Vamsi@246
     ports:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-pSecureRootPassword123"]
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-pSecureRootPassword123" ]
       interval: 10s
       timeout: 5s
       retries: 5
