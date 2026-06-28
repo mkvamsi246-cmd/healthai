@@ -10,8 +10,8 @@ ENV PORT=8000
 
 WORKDIR /app
 
-# Install system dependencies needed for OpenCV, EasyOCR, and building wheels
-RUN apt-get update && apt-get install -y --no-install-recommends \
+# Install system dependencies needed for OpenCV, EasyOCR, and building wheels with retries for network resilience
+RUN apt-get clean && apt-get update -o Acquire::Retries=3 && apt-get install -y -o Acquire::Retries=3 --no-install-recommends \
     build-essential \
     libgl1-mesa-glx \
     libglib2.0-0 \
